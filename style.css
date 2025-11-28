@@ -93,3 +93,51 @@ body {
     width: 140px;
     filter: drop-shadow(0 0 6px rgba(255,255,255,0.2));
 }
+.slider {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.slides {
+    position: relative;
+    width: 100%;
+}
+
+.slide {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+}
+
+.slide.active {
+    opacity: 1;
+    position: relative;
+}
+
+/* 🔵 Bolinhas de navegação */
+.dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.dot.active {
+    background: #00D957; /* verde neon do botão */
+}
