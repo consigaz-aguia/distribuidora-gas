@@ -163,3 +163,63 @@ body {
 .btn-voice:hover {
     transform: scale(1.05);
 }
+.delivery-section {
+    text-align: center;
+    margin: 40px 20px;
+    color: #fff;
+}
+
+.delivery-section h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.delivery-section p {
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+/* Grid de produtos */
+.products-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+/* Cada produto */
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* redondinho */
+    object-fit: cover;
+    box-shadow: 0 0 15px rgba(0, 255, 115, 0.4);
+    transition: 0.3s ease;
+}
+
+.product p {
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Efeito hover */
+.product:hover img {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(0, 255, 115, 0.6);
+}
+
+.product:hover p {
+    color: #00D957;
+}
