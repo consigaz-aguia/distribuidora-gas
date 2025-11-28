@@ -74,13 +74,22 @@ body {
 .zap-fixed img {
     width: 40px;
 }
-
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-6px); }
+}
+.consigaz-logo {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0 20px;
+    opacity: 0.8;
+}
+
+.consigaz-logo img {
+    width: 140px;
+    filter: drop-shadow(0 0 6px rgba(255,255,255,0.2));
 }
