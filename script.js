@@ -40,3 +40,31 @@ document.querySelector(".slider").addEventListener("touchend", (e) => {
         showSlide(index);
     }
 });
+const btn = document.getElementById('voice-btn');
+
+// Verifica se o navegador suporta SpeechRecognition
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+if(SpeechRecognition){
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'pt-BR';
+
+    btn.addEventListener('click', () => {
+        recognition.start();
+        btn.textContent = '🎙️ Ouvindo... diga "Mostrar endereço"';
+    });
+
+    recognition.addEventListener('result', (event) => {
+        const transcript = event.results[0][0].transcript.toLowerCase();
+        if(transcript.includes("mostrar endereço")){
+            window.open("https://www.google.com/maps/search/?api=1&query=R.+Irm%C3%A3+Maria+Rita+de+Souza+Brito+Lopes,+559+-+Conjunto+Residencial+Humait%C3%A1,+S%C3%A3o+Vicente+-+SP,+11349-330", "_blank");
+        }
+        btn.textContent = '🎤 Ou diga "Mostrar endereço"';
+    });
+
+    recognition.addEventListener('end', () => {
+        btn.textContent = '🎤 Ou diga "Mostrar endereço"';
+    });
+} else {
+    btn.textContent = 'Seu navegador não suporta reconhecimento de voz';
+}
