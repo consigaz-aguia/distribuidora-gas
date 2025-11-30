@@ -315,9 +315,7 @@ body {
 #chat-input::placeholder {
   color: #999;
 }
-export function ativarVoz() {
-const input = document.getElementById('chat-input');
-const header = document.getElementById('chat-header');
+
 
 
 
