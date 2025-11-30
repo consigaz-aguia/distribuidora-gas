@@ -89,6 +89,15 @@
     <p class="credits">Criado por <a href="https://www.instagram.com/cyberweb.art" target="_blank">@cyberweb.art</a></p>
     <p class="contact"><a href="https://wa.me/5513991006476" target="_blank">Fale conosco</a></p>
 </footer>
+<script type="module">
+  import { iniciarChatbot } from './script.js';
+  iniciarChatbot();
+</script>
+<div id="chatbot-box">
+  <div id="chat-header">🤖 Atendimento</div>
+  <div id="chat-content"></div>
+  <input id="chat-input" placeholder="Digite sua pergunta..." />
+</div>
 
 </body>
 </html>
