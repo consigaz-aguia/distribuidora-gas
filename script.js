@@ -69,48 +69,51 @@ if(SpeechRecognition){
     btn.textContent = 'Seu navegador não suporta reconhecimento de voz';
 }
 
-// Respostas personalizadas da Águia Distribuidora
-
 const respostas = {
-  horario: "Funcionamos de segunda a sábado das 08h às 20h, e aos domingos das 08h às 14h.",
-  valores: "Gás: 105 retirada, 115 com entrega, Botijão vazio: 160. Praia Grande Entrega 130.  Água no atacado: R$10 (acima de 5 unidades).",
-  localizacao: "Atendemos Humaitá, Pq Continental, Quarentenário, Rio Branco, Gleba 1 e 2 e algumas regiões próximas. Para confirmar, envie mensagem no WhatsApp!"
+horario: "Funcionamos de segunda a sábado das 08h às 20h, e aos domingos das 08h às 14h.",
+valores: "Gás: 105 retirada, 115 com entrega, Praia Grande 130. Botijão vazio: 160. Água no atacado: R$10 (acima de 5 unidades).",
+localizacao: "Atendemos Humaitá, Pq Continental, Quarentenário, Rio Branco, Gleba 1 e 2 e algumas regiões próximas. Para confirmar, envie mensagem no WhatsApp!"
 };
+
 
 // Função para iniciar o chatbot no HTML
 export function iniciarChatbot() {
-  const chatbot = document.getElementById('chatbot-box');
-  const header = document.getElementById('chat-header');
-  const content = document.getElementById('chat-content');
-  const input = document.getElementById('chat-input');
+const chatbot = document.getElementById('chatbot-box');
+const header = document.getElementById('chat-header');
+const content = document.getElementById('chat-content');
+const input = document.getElementById('chat-input');
 
-  // Abre/fecha chatbot
-  header.onclick = () => {
-    chatbot.style.display = chatbot.style.display === 'block' ? 'none' : 'block';
-  };
 
-  // Quando o usuário aperta ENTER
-  input.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      const pergunta = e.target.value.toLowerCase();
-      let resposta = "Desculpe, não entendi. Poderia reformular?";
+// Abre/fecha chatbot
+header.onclick = () => {
+chatbot.style.display = chatbot.style.display === 'block' ? 'none' : 'block';
+};
 
-      if (pergunta.includes('horário') || pergunta.includes('funciona') || pergunta.includes('abre')) {
-        resposta = respostas.horario;
-      }
-      if (pergunta.includes('preço') || pergunta.includes('valor') || pergunta.includes('gás') || pergunta.includes('agua') || pergunta.includes('água')) {
-        resposta = respostas.valores;
-      }
-      if (pergunta.includes('onde') || pergunta.includes('local') || pergunta.includes('região') || pergunta.includes('atende')) {
-        resposta = respostas.localizacao;
-      }
 
-      content.innerHTML += `<p><b>Você:</b> ${e.target.value}</p>`;
-      content.innerHTML += `<p><b>Bot:</b> ${resposta}</p>`;
+// Quando o usuário aperta ENTER
+input.addEventListener('keypress', (e) => {
+if (e.key === 'Enter') {
+const pergunta = e.target.value.toLowerCase();
+let resposta = "Desculpe, não entendi. Poderia reformular?";
 
-      content.scrollTop = content.scrollHeight;
-      e.target.value = '';
-    }
-  });
+
+if (pergunta.includes('horário') || pergunta.includes('funciona') || pergunta.includes('abre')) {
+resposta = respostas.horario;
+}
+if (pergunta.includes('preço') || pergunta.includes('valor') || pergunta.includes('gás') || pergunta.includes('agua') || pergunta.includes('água')) {
+resposta = respostas.valores;
+}
+if (pergunta.includes('onde') || pergunta.includes('local') || pergunta.includes('região') || pergunta.includes('atende')) {
+resposta = respostas.localizacao;
 }
 
+
+content.innerHTML += `<p><b>Você:</b> ${e.target.value}</p>`;
+content.innerHTML += `<p><b>Bot:</b> ${resposta}</p>`;
+
+
+content.scrollTop = content.scrollHeight;
+e.target.value = '';
+}
+});
+}
