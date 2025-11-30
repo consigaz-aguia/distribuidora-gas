@@ -113,3 +113,35 @@ export function iniciarChatbot() {
     }
   });
 }
+export function ativarVoz() {
+  const input = document.getElementById('chat-input');
+  const micBtn = document.getElementById('mic-btn');
+
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if (!SpeechRecognition) {
+    console.warn("Reconhecimento de voz não suportado no navegador.");
+    return;
+  }
+
+  const recognition = new SpeechRecognition();
+  recognition.lang = 'pt-BR';
+  recognition.continuous = false;
+
+  micBtn.onclick = () => {
+    recognition.start();
+    micBtn.textContent = "🎧";
+  };
+
+  recognition.onresult = (event) => {
+    const texto = event.results[0][0].transcript;
+    input.value = texto;
+
+    const enterEvent = new KeyboardEvent('keypress', { key: 'Enter' });
+    input.dispatchEvent(enterEvent);
+  };
+
+  recognition.onend = () => {
+    micBtn.textContent = "🎤";
+  };
+}
