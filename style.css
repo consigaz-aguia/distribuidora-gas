@@ -257,3 +257,61 @@ body {
     text-shadow: 0 0 8px #00D957;
     transform: scale(1.05);
 }
+/* CSS exclusivo do Chatbot para style.css */
+
+/* Caixa do chatbot */
+#chatbot-box {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 260px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.25);
+  display: none;
+  overflow: hidden;
+  z-index: 9999;
+  border: 1px solid #e5e5e5;
+}
+
+/* Cabeçalho */
+#chat-header {
+  background: #333;
+  color: white;
+  padding: 12px;
+  font-size: 15px;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+}
+
+/* Área das mensagens */
+#chat-content {
+  padding: 10px;
+  max-height: 260px;
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+#chat-content p {
+  margin: 6px 0;
+}
+
+#chat-content b {
+  color: #111;
+}
+
+/* Input */
+#chat-input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-top: 1px solid #ddd;
+  outline: none;
+  font-size: 14px;
+}
+
+#chat-input::placeholder {
+  color: #999;
+}
